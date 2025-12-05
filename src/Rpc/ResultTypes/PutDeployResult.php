@@ -8,7 +8,7 @@ class PutDeployResult extends AbstractResult
 
     public static function fromJSON(array $json): self
     {
-        return self($json, $json['deploy_hash']);
+        return new self($json, $json['deploy_hash']);
     }
 
     public function __construct(array $rawJSON, string $deployHash)

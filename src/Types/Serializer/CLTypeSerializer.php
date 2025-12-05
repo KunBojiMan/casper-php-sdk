@@ -25,11 +25,17 @@ class CLTypeSerializer extends JsonSerializer
     }
 
     /**
+     * @param array|string $json
      * @throws \Exception
      */
-    public static function fromJson(array $json): CLType
+    public static function fromJson($json): CLType
     {
         $classPrefix = 'Casper\Types\CLValue\CLType\CL';
+
+        if (is_string($json)) {
+            $clTypeClass = $classPrefix . $json . 'Type';
+            return new $clTypeClass();
+        }
 
         if (ArrayUtil::isMap($json)) {
             $typeName = array_key_first($json);
