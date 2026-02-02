@@ -67,7 +67,6 @@ class DelegatorSerializer extends JsonSerializer
             try {
                 $result[] = self::fromJson($item);
             } catch (\RuntimeException $e) {
-                // Skip invalid delegator entries
                 continue;
             }
         }

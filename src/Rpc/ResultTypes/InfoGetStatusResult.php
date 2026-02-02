@@ -46,7 +46,6 @@ class InfoGetStatusResult extends AbstractResult
 
     public static function fromJSON(array $json): self
     {
-        // Handle optional last_added_block_info (may be null in some node states)
         $lastAddedBlockInfo = isset($json['last_added_block_info'])
             ? MinimalBlockInfoSerializer::fromJSON($json['last_added_block_info'])
             : null;

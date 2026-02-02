@@ -25,7 +25,6 @@ class RpcResponse
             $errorMessage = $data['error']['message'] ?? $data['message'] ?? 'Empty response';
             $errorCode = $data['error']['code'] ?? 0;
             
-            // Include detailed data if available (patched by AI)
             if (isset($data['error']['data'])) {
                 $errorData = $data['error']['data'];
                 if (is_array($errorData) || is_object($errorData)) {
